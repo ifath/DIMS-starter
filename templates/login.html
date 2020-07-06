@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <form action="login" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="user_name" placeholder="username"><br>
+        <input type="password" name="password" placeholder="password"><br>
+
+        <br>
+
+        <input type="checkbox" id="remember_me" name="remember_me" value="Remember Me">
+        <label for="remember_me"> Remember Me</label><br>
+
+        <div class="col-sm-offset-2">
+            <button class="btn btn-primary" type="submit">Sign In</button>
+            <a class="btn btn-info" href="password_reset">Forgot Password?</a>
+<!--            <button class="btn btn-info" type="button">Forgot Password?</button>-->
+        </div>
+
+<!--        <input type="Forgot Password">-->
+
+    </form>
+
+    <div>
+      {% for message in messages %}
+      <h3> {{message}}</h3>
+      {% endfor %}
+    </div>
+{% endblock %}

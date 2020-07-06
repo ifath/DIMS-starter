@@ -19,8 +19,12 @@ from django.urls import path, include
 # for adding media
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('employee/', include('employee.urls'))
+    path("", views.index, name="Home"),
+
+    path('employee/', include('employee.urls')),
+    path('accounts/', include('accounts.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
