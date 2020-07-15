@@ -1,5 +1,5 @@
 from django.db import models
-from autoslug import AutoSlugField
+# from autoslug import AutoSlugField
 
 # Create your models here.
 class Employee(models.Model):
@@ -23,7 +23,7 @@ class Employee(models.Model):
     # modified_by = models.IntegerField(max_length=20, null=True, blank=True, verbose_name="Modified by")
 
     # department = models.ForeignKey(Department, verbose_name='Department', on_delete=models.PROTECT)
-    slug = AutoSlugField(populate_from='first_name', unique=True, always_update=True, default=None)
+    # slug = AutoSlugField(populate_from='first_name', unique=True, always_update=True, default=None)
     # joining_date = models.DateField(null=True, verbose_name="Joining Date")
     # designation = models.ForeignKey(Designation, verbose_name='Designation', on_delete=models.PROTECT)
     # grade = models.ForeignKey('duet_account.Grade', null=True, verbose_name='Grade', on_delete=models.PROTECT)
