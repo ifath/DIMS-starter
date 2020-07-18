@@ -7,7 +7,40 @@
 <form action = "" method = "post">
 	{% csrf_token %}
 	{{form }}
-	<input type="submit" value=Submit">
+<!--	<button type="submit">SUBMIT</button>-->
+
+<!--	<table border="1">-->
+
+<!--      <tr>-->
+<!--        <th>{{ form.category_name.label_tag }}</th>-->
+<!--        <td>-->
+<!--          {{ form.category_name.errors }}-->
+<!--          {{ form.category_name }}-->
+<!--        </td>-->
+<!--      </tr>-->
+
+<!--      <tr>-->
+<!--        <th>{{ form.details.label_tag }}</th>-->
+<!--        <td>-->
+<!--          {{ form.details.errors }}-->
+<!--          {{ form.details }}-->
+<!--        </td>-->
+<!--      </tr>-->
+
+<!--      <tr>-->
+<!--        <th>{{ form.parent_id.label_tag }}</th>-->
+<!--        <td>-->
+<!--          {{ form.parent_id.errors }}-->
+<!--          {{ form.parent_id }}-->
+<!--          <br />-->
+<!--&lt;!&ndash;          {{ form.message.help_text }}&ndash;&gt;-->
+<!--        </td>-->
+<!--      </tr>-->
+
+<!--  </table>-->
+
+  <button type="submit">Submit</button>
+
 </form>
 
 {% endblock %}

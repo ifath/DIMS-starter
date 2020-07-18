@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="." method="POST">
+
+        {% csrf_token %}
+
+        {{form }}
+        <button type="submit">SUBMIT</button>
+    </form>
+
+    <br>
+    <div>
+      {% for message in messages %}
+      <h3> {{message}}</h3>
+      {% endfor %}
+    </div>
+
+{% endblock %}
