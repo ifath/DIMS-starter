@@ -25,16 +25,16 @@ class Employee(models.Model):
 
     employee_no = models.CharField(verbose_name='Employee no', max_length=20, null=True, blank=True)
 
-    created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Created At")
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
-                                   related_name='employee_created_by')
-
-    last_modified_at = models.DateTimeField(auto_now=True, verbose_name="Last Modified At")
-    last_modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
-                                         related_name='employee_modified_by')
-
-    slug = AutoSlugField(populate_from='first_name', unique=True, null=True, always_update=True, default=None)
-    active_status = models.IntegerField(default=1)
+    # created_at = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Created At")
+    # created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
+    #                                related_name='employee_created_by')
+    #
+    # last_modified_at = models.DateTimeField(auto_now=True, verbose_name="Last Modified At")
+    # last_modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
+    #                                      related_name='employee_modified_by')
+    #
+    # # slug = AutoSlugField(populate_from='first_name', unique=True, null=True, always_update=True, default=None)
+    # active_status = models.IntegerField(default=1)
 
     # department = models.ForeignKey(Department, verbose_name='Department', on_delete=models.PROTECT)
     # slug = AutoSlugField(populate_from='first_name', unique=True, always_update=True, default=None)
