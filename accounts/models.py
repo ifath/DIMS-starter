@@ -30,7 +30,7 @@ class MyAccountManager(BaseUserManager):
 			email=self.normalize_email(email),
 			password=password,
 			username=username,
-			employee=find_emp,
+			employee=employee,
 		)
 
 		user.is_admin = True
@@ -49,7 +49,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     is_staff				= models.BooleanField(default=False)
     is_superuser			= models.BooleanField(default=False)
 
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email', 'employee']

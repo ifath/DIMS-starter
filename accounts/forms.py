@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 
 from accounts.models import Account
+from employee.models import Employee
 
 
 class RegistrationForm(UserCreationForm):
