@@ -12,7 +12,11 @@ def category_create(request):
         category_name = request.POST.get('category_name', '')
         details = request.POST.get('details', '')
         parent_id = request.POST.get('parent_id', '')
-        parent_object = Category.objects.get(id=parent_id)
+
+        if parent_id != '':
+            parent_object = Category.objects.get(id=parent_id)
+        else:
+            parent_object = default = None
 
         current_user = request.user
 

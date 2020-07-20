@@ -8,6 +8,10 @@ class CategoryCreateForm(forms.ModelForm):
         fields = ["category_name", "details", "parent_id"]
         # fields = "__all__"
 
+        labels = {
+            "parent_id": "Mother Category"
+        }
+
 
 class ProductCreateForm(forms.ModelForm):
     class Meta:
