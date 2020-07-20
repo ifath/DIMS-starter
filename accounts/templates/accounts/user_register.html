@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+<!--{% block title %} Employee Registration{% endblock %}-->
+
+{% block content %}
+
+<h1>User Details</h1>
+
+<!--action="{% url 'registration_view' %}"-->
+<form  method='post'>
+
+  {% csrf_token %}
+
+<!--  Enter First Name: <input type="text" name="first_name" placeholder="First Name"><br>-->
+<!--  Enter Last Name: <input type="text" name="last_name" placeholder="Last Name"><br>-->
+<!--  Enter User Name: <input type="text" name="user_name" placeholder="User Name"><br>-->
+<!--  Enter Email: <input type="email" name="email" placeholder="Email"><br>-->
+<!--  Enter DUET Employee No: <input type="text" name="employee_no" placeholder="Employee No"><br>-->
+<!--  Enter Password: <input type="password" name="password" placeholder="Password"><br>-->
+<!--  Confirm Password: <input type="password" name="confirm_password" placeholder="Confirm Password"><br>-->
+
+  {% for field in registration_form %}
+      <p>
+          {{ field.label_tag }}
+          {{ field }}
+
+          {% if field.help_text  %}
+              <small style="color: grey;">{{ field.help_text }}</small>
+          {% endif %}
+
+          {% for error in field.errors %}
+
+            <p style="color: red">{{ error }}</p>
+          {% endfor %}
+      </p>
+  {% endfor %}
+  {% if registration_form.non_field_errors %}
+    <div style="color: red">
+      <p>{{registration_form.non_field_errors}}</p>
+    </div>
+
+  {% endif %}
+
+
+  <button type='submit'>Submit </button>
+</form>
+
+<!--<div>-->
+<!--  {% for message in messages %}-->
+<!--  <h3> {{message}}</h3>-->
+<!--  {% endfor %}-->
+<!--</div>-->
+{% endblock %}

@@ -22,7 +22,7 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
 
-      {% if user.is_authenticated %}
+      {% if request.user.is_authenticated %}
 
       <li class="nav-item">
         <a class="nav-link" href="{% url 'category_create' %}">Category Entry</a>
@@ -31,14 +31,14 @@
         <a class="nav-link" href="{% url 'product_create' %}">Product Entry</a>
       </li>
       <br>
-      <li class="nav-link">     Hello,  {{user.first_name}}    </li>
+      <li class="nav-link">     Hello,  {{request.user.username}}    </li>
       <br>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
       </li>
       {% else %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'user_register' %}">Register</a>
+        <a class="nav-link" href="{% url 'registration_view' %}">Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'login' %}">Login</a>

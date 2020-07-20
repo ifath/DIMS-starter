@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'employee.apps.EmployeeConfig',
-    'product.apps.ProductConfig'
+    'product.apps.ProductConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'duetInventory.urls'
+
 
 TEMPLATES = [
     {
@@ -71,6 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'duetInventory.wsgi.application'
 
+
+AUTH_USER_MODEL = 'accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
