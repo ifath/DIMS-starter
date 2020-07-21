@@ -18,7 +18,7 @@
 
 <!--        </div>-->
 
-        {% for field in login_form %}
+        {% for field in account_form %}
               <p>
                   {{ field.label_tag }}
                   {{ field }}
@@ -29,7 +29,7 @@
               </p>
         {% endfor %}
 
-        {% for field in login_form %}
+        {% for field in account_form %}
           <p>
             {% for error in field.errors %}
               <p style="color: red">{{ error }}</p>
@@ -37,23 +37,24 @@
           </p>
         {% endfor %}
 
-        {% if login_form.non_field_errors %}
+        {% if account_form.non_field_errors %}
             <div style="color: red">
-              <p>{{login_form.non_field_errors}}</p>
+              <p>{{account_form.non_field_errors}}</p>
             </div>
         {% endif %}
 
-        <input type="checkbox" id="remember_me" name="remember_me" value="Remember Me">
-        <label for="remember_me"> Remember Me</label><br>
-
         <div class="col-sm-offset-2">
-            <button class="btn btn-primary" type="submit">Sign In</button>
-            <a class="btn btn-info" href="{% url 'password_reset' %}">Forgot Password?</a>
-
+            <button class="btn btn-primary" type="submit">Save Changes</button>
         </div>
 
 
     </form>
+
+<br>
+        <div class="col-sm-offset-2">
+            <a class="m-auto btn btn-info" href="{% url 'password_change' %}">Change Password</a>
+        </div>
+
 
 <!--    <div>-->
 <!--      {% for message in messages %}-->

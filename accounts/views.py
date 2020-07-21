@@ -3,7 +3,7 @@ from  django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 
-from accounts.forms import RegistrationForm, AccountAuthenticationForm
+from accounts.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 from employee.models import Employee
 
 
@@ -57,11 +57,33 @@ def login_view(request):
     return render(request, "accounts/login.html", context)
 
 
+def account_view(request):
+    if not request.user.is_authenticated:
+        return redirect("login")
+
+    context = {}
+
+    if request.POST:
+        form = AccountUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AccountUpdateForm(
+                initial= {
+                    "email": request.user.email,
+                    "username": request.user.username,
+                    "employee": request.user.employee,
+                    # "password": request.user.password,
+                }
+            )
+    context['account_form'] = form
+    return render(request, 'accounts/account.html', context)
 
 
 def logout_view(request):
     logout(request)
     return redirect("/")
+
 
 def password_reset(request):
     return render(request, 'password_reset.html')

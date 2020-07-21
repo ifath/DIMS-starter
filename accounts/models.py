@@ -39,33 +39,34 @@ class MyAccountManager(BaseUserManager):
 		user.save(using=self._db)
 		return user
 
+
 class Account(AbstractBaseUser, PermissionsMixin):
-    email 					= models.EmailField(verbose_name="email", help_text='Required. Add a valid email address', max_length=60, unique=True)
-    username 				= models.CharField(max_length=30, unique=True)
-    date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
-    last_login				= models.DateTimeField(verbose_name='last login', auto_now=True)
-    is_admin				= models.BooleanField(default=False)
-    is_active				= models.BooleanField(default=True)
-    is_staff				= models.BooleanField(default=False)
-    is_superuser			= models.BooleanField(default=False)
+	email 					= models.EmailField(verbose_name="email", help_text='Required. Add a valid email address',max_length=60, unique=True)
+	username 				= models.CharField(max_length=30, unique=True)
+	date_joined				= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
+	last_login				= models.DateTimeField(verbose_name='last login', auto_now=True)
+	is_admin				= models.BooleanField(default=False)
+	is_active				= models.BooleanField(default=True)
+	is_staff				= models.BooleanField(default=False)
+	is_superuser			= models.BooleanField(default=False)
 
-    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
+	employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'employee']
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = ['email', 'employee']
 
-    objects = MyAccountManager()
+	objects = MyAccountManager()
 
-    def __str__(self):
-        return self.username + self.employee.employee_no
+	def __str__(self):
+		return self.username + self.employee.employee_no
 
 
 def has_perm(self, perm, obj=None):
-    return self.is_admin
+	return self.is_admin
 
 
 def has_module_perms(self, app_label):
-    return self.is_superuser
+	return self.is_superuser
 
 # class Profile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
